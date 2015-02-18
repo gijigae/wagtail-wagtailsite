@@ -220,3 +220,11 @@ WAGTAIL_SITE_NAME = 'wagtail.io'
 
 # Override the search results template for wagtailsearch
 WAGTAILSEARCH_RESULTS_TEMPLATE = 'wagtailsite/search_results.html'
+# Celery settings
+# When you have multiple sites using the same Redis server,
+# specify a different Redis DB. e.g. redis://localhost/5
+
+BROKER_URL = 'redis://'
+
+CELERY_SEND_TASK_ERROR_EMAILS = True
+CELERYD_LOG_COLOR = False

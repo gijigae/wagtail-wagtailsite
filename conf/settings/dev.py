@@ -20,6 +20,11 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
 
+# Process all tasks synchronously.
+# Helpful for local development and running tests
+CELERY_EAGER_PROPAGATES_EXCEPTIONS = True
+CELERY_ALWAYS_EAGER = True
+
 try:
     from .local import *
 except ImportError:
