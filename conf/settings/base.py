@@ -7,7 +7,7 @@ from sys import path
 DJANGO_ROOT = dirname(dirname(dirname(abspath(__file__))))
 
 # Absolute filesystem path to the top-level project folder:
-PROJECT_ROOT = dirname(DJANGO_ROOT)
+PROJECT_ROOT = DJANGO_ROOT
 
 # Add our project to our pythonpath, this way we don't need to type our project
 # name in our dotted import paths:
