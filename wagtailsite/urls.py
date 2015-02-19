@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from wagtailsite.models import BlogFeed
+from wagtailsite.feeds import BlogFeed
 
 urlpatterns = [
-    url(r'^blog/feed/$', BlogFeed())
+    url(r'^blog/feed/$', BlogFeed(), name='blog_feed')
 ]

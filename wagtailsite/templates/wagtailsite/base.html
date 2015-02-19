@@ -22,6 +22,7 @@
         {% compress js %}{% endcompress %}
 
         <link rel="shortcut icon" href="{% static "wagtailsite/images/wagtail-favicon-32x32.ico" %}" />
+        <link rel="alternate" type="application/rss+xml" title="Wagtail.io Blog RSS" href="{% url 'blog_feed' %}" />
 
         {% block extra_css %}{% endblock %}
     </head>
