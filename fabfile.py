@@ -5,7 +5,7 @@ import uuid
 
 env.roledefs = {
     'staging': ['wagtailsite@django-staging.torchbox.com'],
-    'production': ['wagtailsite@by-web-2.torchbox.com'],
+    'production': ['wagtailsite@by-web-3.torchbox.com'],
 }
 
 # TODO: a nicer dict of settings
