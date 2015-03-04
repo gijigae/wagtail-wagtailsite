@@ -8,29 +8,21 @@
         <div class="hero-inner">
             <h4>Elegant. Open source. Easy.<br>Wagtail is the new Django CMS from Torchbox.</h4>
             <!-- VIDEO STUFF -->
-            <a class="btn youtube desktop" href="http://player.vimeo.com/video/86036070"><i class="fa fa-play-circle"></i>Promo video</a>
-            <a class="btn mobile" target="_blank" href='http://player.vimeo.com/video/86036070'><i class="fa fa-play-circle"></i>Promo video</a>
-            <p>For a more in-depth look at Wagtail, please watch our <a class="youtube" href="http://player.vimeo.com/video/86719782">RCA Video case study</a>.</p>
-            <script>
-                $('.youtube').colorbox({iframe: true, width: 1280, height: 720, href:function(){
-                    var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
-                    if (videoId && videoId[1]) {
-                        return 'http://youtube.com/embed/'+videoId[1]+'?rel=0&wmode=transparent';
-                    }
-                }});
-            </script>
+            <a class="btn youtube desktop" href="https://player.vimeo.com/video/86036070"><i class="fa fa-play-circle"></i>Promo video</a>
+            <a class="btn mobile" target="_blank" href='https://player.vimeo.com/video/86036070'><i class="fa fa-play-circle"></i>Promo video</a>
+            <p>For a more in-depth look at Wagtail, please watch our <a class="youtube" href="https://player.vimeo.com/video/86719782">RCA Video case study</a>.</p>
             <!-- VIDEO STUFF -->
         </div>
         <div id="intro">
             <div class="intro-half">
                 <h4>Install today</h4>
                 <p>Grab the open source code from GitHub and start building your new site.</p>
-                <a class="btn" href="http://github.com/torchbox/wagtail/" target="_blank"><i class="fa fa-download"></i>Download Wagtail</a>
+                <a class="btn" href="https://github.com/torchbox/wagtail/" target="_blank"><i class="fa fa-download"></i>Download Wagtail</a>
             </div>
             <div class="intro-half">
                 <h4>Learn how</h4>
                 <p>Everything to get you started, whether as a developer or a content editor.</p>
-                <a class="btn" href="http://wagtail.readthedocs.org"><i class="fa fa-eye"></i>Documentation</a>
+                <a class="btn" href="https://wagtail.readthedocs.org"><i class="fa fa-eye"></i>Documentation</a>
             </div>
         </div>
     </div>
@@ -72,21 +64,12 @@
 
         <div class="macbook">
             <!-- VIDEO STUFF -->
-            <a class="btn youtube desktop" href="http://player.vimeo.com/video/86719782"><i class="fa fa-play-circle"></i>Video case study</a>
-
-            <script>
-                $('.youtube').colorbox({iframe: true, width: 1280, height: 720, href:function(){
-                    var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
-                    if (videoId && videoId[1]) {
-                        return 'http://youtube.com/embed/'+videoId[1]+'?rel=0&wmode=transparent';
-                    }
-                }});
-            </script>
+            <a class="btn youtube desktop" href="https://player.vimeo.com/video/86719782"><i class="fa fa-play-circle"></i>Video case study</a>>
             <!-- VIDEO STUFF -->
 
             <img class="mbadesk" src="{% static "wagtailsite/images/mba2.png" %}" style='width:100%; max-width: 848px;' >
             <img class="mbamobile" src="{% static "wagtailsite/images/mba2-2.png" %}" style='width:100%; max-width: 848px;' >
-            <a class="btn mobile" target="_blank" href='http://player.vimeo.com/video/86719782'><i class="fa fa-play-circle"></i>Video case study</a>
+            <a class="btn mobile" target="_blank" href='https://player.vimeo.com/video/86719782'><i class="fa fa-play-circle"></i>Video case study</a>
         </div>
         <div class="iphone"></div>
         <div class="client-info">
@@ -104,7 +87,7 @@
         <ul id="whywagtail">
             <li>
                 <h4>Why 'Wagtail'?</h4>
-                <p><a href = "https://www.rspb.org.uk/wildlife/birdguide/name/p/piedwagtail/index.aspx">Wagtails</a> are pretty little birds from the Motacilla family. From spring to autumn they gather on the lawns outside <a href = "http://www.torchbox.com/">Torchbox</a>'s offices, charming us and our visitors. We wanted a name which reflected our beautiful setting and which had a sense of light and delight. Plus birds make easy logos.</p>
+                <p><a href = "https://www.rspb.org.uk/wildlife/birdguide/name/p/piedwagtail/index.aspx">Wagtails</a> are pretty little birds from the Motacilla family. From spring to autumn they gather on the lawns outside <a href = "https://www.torchbox.com/">Torchbox</a>'s offices, charming us and our visitors. We wanted a name which reflected our beautiful setting and which had a sense of light and delight. Plus birds make easy logos.</p>
             </li>
             <hr>
             <li>
@@ -130,7 +113,7 @@
         <div class="download-half">
             <h4>Good to go?</h4>
             <p>Grab the open source code from GitHub and start building your new site.</p>
-            <a class="btn" href="http://github.com/torchbox/wagtail/" target="_blank"><i class="fa fa-download"></i>Download Wagtail</a>
+            <a class="btn" href="https://github.com/torchbox/wagtail/" target="_blank"><i class="fa fa-download"></i>Download Wagtail</a>
         </div>
         <div class="download-half">
             <h4>Need an agency?</h4>
@@ -138,4 +121,14 @@
             <a class="btn" href="mailto:hello@wagtail.io"><i class="fa fa-envelope"></i>Get in touch</a>
         </div>
     </div>
+{% endblock %}
+{% block extra_js %}
+    <script>
+        $('.youtube').colorbox({iframe: true, width: 1280, height: 720, href:function(){
+            var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
+            if (videoId && videoId[1]) {
+                return 'https://youtube.com/embed/'+videoId[1]+'?rel=0&wmode=transparent';
+            }
+        }});
+    </script>
 {% endblock %}
