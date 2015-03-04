@@ -34,14 +34,12 @@ REMOTE_DUMP_PATH = "~/"
 @roles('staging')
 def staging_restart():
     with cd('/usr/local/django/wagtailsite/'):
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/pip install -r requirements/production.txt")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py syncdb --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py migrate --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py collectstatic --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py compress --force --settings=conf.settings.production")
-
-    run("sudo /usr/bin/supervisorctl restart wagtailsite")
-
+        run("pip install --upgrade -r requirements/production.txt")
+        run('manage syncdb --noinput')
+        run('manage migrate -noinput')
+        run('manage collectstatic --noinput')
+        run('manage compress --force')
+        run('restart')
 
 @roles('staging')
 def deploy_staging():
@@ -50,19 +48,15 @@ def deploy_staging():
 
     staging_restart()
 
-
 @roles('production')
 def deploy():
     with cd('/usr/local/django/wagtailsite/'):
-        run("git pull")
-
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/pip install -r requirements/production.txt")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py syncdb --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py migrate --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py collectstatic --settings=conf.settings.production --noinput")
-        run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py compress --settings=conf.settings.production")
-
-    sudo("/usr/bin/supervisorctl restart wagtailsite")
+        run("pip install --upgrade -r requirements/production.txt")
+        run('manage syncdb --noinput')
+        run('manage migrate -noinput')
+        run('manage collectstatic --noinput')
+        run('manage compress --force')
+        run('restart')
 
 # @roles('production')
 # def pull_live_data():
