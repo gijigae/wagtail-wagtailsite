@@ -54,7 +54,7 @@ def deploy():
         run("pip install --upgrade -r requirements/production.txt")
         run('manage syncdb --noinput')
         run('manage migrate --noinput')
-        run('manage collectstatic --noinput')
+        run('manage collectstatic --noinput --clean')
         run('manage compress --force')
         run('restart')
 
