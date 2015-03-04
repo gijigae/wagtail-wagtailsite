@@ -52,7 +52,7 @@ def deploy_staging():
 
 
 @roles('production')
-def deploy():
+def deploy_production():
     with cd('/usr/local/django/wagtailsite/'):
         run("git pull")
 
@@ -62,7 +62,7 @@ def deploy():
         run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py collectstatic --settings=conf.settings.production --noinput")
         run("/usr/local/django/virtualenvs/wagtailsite/bin/python manage.py compress --settings=conf.settings.production")
 
-    sudo("/usr/bin/supervisorctl restart wagtailsite")
+    sudo("restart")
 
 # @roles('production')
 # def pull_live_data():
