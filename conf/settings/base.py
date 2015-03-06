@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'taggit',
     'modelcluster',
     'django.contrib.admin',
+    'djcelery',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
