@@ -113,12 +113,18 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers':     ['file', 'mail_admins'],
+            'handlers':     ['mail_admins'],
             'level':        'ERROR',
-            'propagate':    True,
+            'propagate':    False,
+        },
+        'django.security': {
+            'handlers':     ['mail_admins'],
+            'level':        'ERROR',
+            'propagate':    False,
         },
     },
 }
+
 
 if 'ERROR_LOG' in env:
     # Add file logger
@@ -130,6 +136,7 @@ if 'ERROR_LOG' in env:
         'backupCount':  5
     }
     LOGGING['loggers']['django.request']['handlers'].append('file')
+    LOGGING['loggers']['django.security']['handlers'].append('file')
 
 
 try:
