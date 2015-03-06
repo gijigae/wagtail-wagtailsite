@@ -74,7 +74,7 @@ else:
     REDIS_LOCATION = None
 
 
-if REDIS_LOCATION is not None
+if REDIS_LOCATION is not None:
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.cache.RedisCache',
