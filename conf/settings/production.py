@@ -67,7 +67,7 @@ if 'REDIS_HOST' in env:
     BROKER_URL = 'redis://%s' % env['REDIS_HOST']
 
 elif 'REDIS_SOCKET' in env:
-    REDIS_LOCATION 'unix://%s' % env['REDIS_SOCKET']
+    REDIS_LOCATION = 'unix://%s' % env['REDIS_SOCKET']
     BROKER_URL = 'redis+socket://%s' % env['REDIS_SOCKET']
 
 else:
