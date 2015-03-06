@@ -103,7 +103,7 @@ if 'ELASTICSEARCH_URL' in env:
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
@@ -126,17 +126,17 @@ LOGGING = {
 }
 
 
+# Log errors to file
 if 'ERROR_LOG' in env:
-    # Add file logger
-    LOGGING['handlers']['file'] = {
+    LOGGING['handlers']['errors_file'] = {
         'level':        'ERROR',
         'class':        'logging.handlers.RotatingFileHandler',
         'filename':     env['ERROR_LOG'],
         'maxBytes':     5242880, # 5MB
         'backupCount':  5
     }
-    LOGGING['loggers']['django.request']['handlers'].append('file')
-    LOGGING['loggers']['django.security']['handlers'].append('file')
+    LOGGING['loggers']['django.request']['handlers'].append('errors_file')
+    LOGGING['loggers']['django.security']['handlers'].append('errors_file')
 
 
 try:
