@@ -101,27 +101,35 @@ if 'ELASTICSEARCH_URL' in env:
 
 # Logging
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers':     ['file', 'mail_admins'],
+            'level':        'ERROR',
+            'propagate':    True,
+        },
+    },
+}
+
 if 'ERROR_LOG' in env:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'handlers': {
-            'file': {
-                'level':        'ERROR',
-                'class':        'logging.handlers.RotatingFileHandler',
-                'filename':     env['ERROR_LOG'],
-                'maxBytes':     5242880, # 5MB
-                'backupCount':  5
-            },
-        },
-        'loggers': {
-            'django.request': {
-                'handlers':     ['file'],
-                'level':        'ERROR',
-                'propagate':    True,
-            },
-        },
+    # Add file logger
+    LOGGING['handlers']['file'] = {
+        'level':        'ERROR',
+        'class':        'logging.handlers.RotatingFileHandler',
+        'filename':     env['ERROR_LOG'],
+        'maxBytes':     5242880, # 5MB
+        'backupCount':  5
     }
+    LOGGING['loggers']['django.request']['handlers'].append('file')
 
 
 try:
