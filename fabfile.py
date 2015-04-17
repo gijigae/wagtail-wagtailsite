@@ -4,22 +4,9 @@ from fabric.api import *
 import uuid
 
 env.roledefs = {
-    'staging': ['wagtailsite@django-staging.torchbox.com'],
-    'production': ['wagtailsite@by-web-3.torchbox.com'],
+    'staging': [ 'wagtailsite@django-staging.torchbox.com' ],
+    'production': [ 'wagtailsite@by-web-4-a.torchbox.com', 'wagtailsite@by-web-4-b.torchbox.com' ],
 }
-
-# TODO: a nicer dict of settings
-# DATABASES = {
-#     'staging':{
-#         'name': 'tbxwagtail',
-#         'user': 'tbxwagtail',
-#     }
-#     'production':{
-#         'host': 'by-postgres-a.torchbox.com',
-#         'name': 'wagtail-torchbox',
-#         'user': 'tbxwagtail',
-#     }
-# }
 
 PROJECT = "wagtail-wagtailsite"
 STAGING_DB_USERNAME = "wagtailsite"
