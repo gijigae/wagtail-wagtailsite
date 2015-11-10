@@ -4,3 +4,5 @@
 /media
 *.pyc
 /Vagrantfile.local
+.idea
+.DS_Store
