@@ -34,5 +34,5 @@ if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += patterns('',
-        (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'wagtail.io/images/favicon.ico'))
+        (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'wagtail.io/images/favicon.ico', permanent=True))
     )
